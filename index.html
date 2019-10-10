@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
+  background-color:#fbfcfc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.box
+{
+  background-color: #f9f9ec;
+  width: 1170px;
+  height:200px;
+  padding: 20px 20px;
+  margin: 30px 100px;
+  vertical-align: middle;
+}
+.head1
+{
+  font-size: 35px;
+  margin: 70px 100px;
+}
+.header {
+  overflow: hidden;
+  background-color: white;
+  padding: 5px 200px;
+  border-style: inset;
+  max-height:130px;
+  border-width: 0px 0px 2px 0px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 10px; 
+  line-height: 25px;
+  border-radius: 50%;
+}
+
+.header a.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.header a.active {
+  background-color: lightgreen;
+  color: white;
+  border-radius: 60px;
+  font-size: 15px;
+}
+
+.header-right {
+  float: right;
+}
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 110px;
+  background-color: white;
+  position: fixed;
+  height: 100%;
+  border-style: inset;
+  border-width: 0px 2px 0px 0px;
+
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+
+  margin-left: 60px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: white;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  color: lightblue;
+  
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+.grid-container {
+  display: grid;
+  margin:90px;
+  grid-template-columns: auto auto auto;
+  
+  grid-column-gap: 25px;
+  grid-row-gap:50px;
+  padding: 10px;
+}
+.grid-item {
+  background-color: white;
+border-style: inset;
+  border-width:0px;
+  width:350px;
+  height:300px;
+  padding: 0px 0px;
+  font-size: 30px;
+  text-align: center;
+}
+.footer {
+   
+   left: 0;
+   bottom: 0;
+   height:200px;
+   width: 100%;
+   background-color: white;
+   color: black;
+   text-align: center;
+}
+.grid-float-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  grid-column-gap: 0px;
+  grid-row-gap:0px;
+  padding: 10px;
+  position:fixed;
+  bottom: 10px;
+  right: 10px;
+}
+.floating-button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin:5px;
+  background: white;
+  cursor: pointer;
+  vertical-align:middle;
+  top:50%;
+  box-shadow: 0px 2px 5px #666;
+  font-size:20px;
+  text-align:center;
+  color:grey;
+}
+.grid-float-container2 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: white;
+  grid-column-gap: 0px;
+  grid-row-gap:0px;
+  padding: 10px;
+  position:fixed;
+  bottom: 10px;
+  left: 10px;
+}
+.floating-button2 {
+  width: 150px;
+  height: 45px;
+
+  border-radius: 50%;
+  margin:5px;
+  background: white;
+  cursor: pointer;
+  vertical-align:middle;
+  top:50%;
+  box-shadow: 0px 2px 5px #666;
+  font-size:20px;
+  text-align:left;
+  color:grey;
+}
+.buttonstyle
+{
+	background-color:white;
+	border-color:#98e6e6;
+	border-radius:5px;
+	color:#98e6e6;
+	padding: 8px 43px;
+	margin-left:80px;
+}
+.buttonstyle2
+{
+	background-color:white;
+	border-color:#98e6e6;
+	border-radius:5px;
+	color:#98e6e6;
+	padding: 8px 30px;
+}
+
+#comments:hover{
+   width:130px;
+   border-radius: 35% 35% 35% 35%;
+   text-align:left;
+   transform: translate(40%, 0%);
+   margin-right:60px;
+   
+}
+#comments:hover:after {
+	content:"comments(8)";
+	font-size:17px;
+	transform:translate(0%,130%);
+}
+</style>
+</head>
+<body>
+<div class="sidebar">
+  <a class="active" href="#home">Home</a>
+  <div style="padding-top:100px "></div>
+  <a href="#"><i class="fa fa-qrcode" style="font-size:25px;padding-bottom:25px;-webkit-text-stroke: 0.01px;"></i></a>
+  <a href="#"><i class="fa fa-search" style="font-size:25px;padding-bottom:25px;-webkit-text-stroke: 0.01px;"></i></a>
+  <a href="#"><i class="fa fa-home" style="font-size:25px;padding-bottom:25px;-webkit-text-stroke: 0.01px;"></i></a>
+</div>
+<div class="header">
+  <a href="#default" style="font-size: 21px;">white<b>panda</b></a>
+  <div class="header-right">
+  	 <a href="#"><i class="fa fa-bell-o" style="font-size:25px;border-radius: 50%;"></i></a>
+    <a class="active" href="#home">AB</a>
+  </div>
+</div>
+
+
+<div style="padding-left:110px">
+
+  <div class="head1">Content Store</div>
+   <div class="box">
+   <p style="color:#5bd7d7;transform:translate(2px,-15px); font-size: 17.5px">Got bulk orders or almost similar orders ? Fill the order brief in an excel sheet</p>
+    <div style="line-height: 10px;transform:translate(2px,-15px); font-size:14px;color:grey;">
+   	If you're wondering about an easy way to place orders in large numbers,we provide a way customized just for that.
+   	</p><p>download our excel sheet,and fill the order brief in the prescribed format and submit.In case you need any help,
+   	</p><u>we are just a click away to assist you in placing your order</u></p>
+   </div>
+   	<button class="buttonstyle2">Order via Excel Sheet</button>
+   
+</div>
+<div class="grid-container">
+  <div class="grid-item">
+  	<i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(10px,-25px); font-size:17px;"><b>Blog / Article</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $500</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(35px,-25px); font-size:17px;"><b>Newsletter / E-mailer</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $1000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(0px,-25px); font-size:17px;"><b>Whitepaper</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $2000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(-20px,-25px); font-size:17px;"><b>e-book</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $1000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(10px,-25px); font-size:17px;"><b>Report / Guide</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $1000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(40px,-25px); font-size:17px;"><b>Product / Description</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $500</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(20px,-25px); font-size:17px;"><b>Website Content</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $1000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(0px,-25px); font-size:17px;"><b>Video Script</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $1000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(50px,-25px); font-size:17px;"><b>Company Profile / Brochure</b></p>
+    <p style="transform:translate(-20px,-35px); font-size:17px;">from $2000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+  <div class="grid-item"><i class="fa fa-twitter" style="font-size:65px; color:lightblue; transform:translate(-100px,50px)"></i>
+  	<p style="transform:translate(10px,-25px); font-size:17px;"><b>Press Release</b></p>
+    <p style="transform:translate(-5px,-35px); font-size:17px;">from $2000</p>
+    <div style="line-height: 10px">
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">Typically 450-400 words,an e-book is</p>
+    <p style="transform:translate(-10px,-15px); font-size:14px; color:grey">perfect for your target audience ranging</p>
+    <p style="transform:translate(-20px,-15px); font-size:14px; color:grey">from prospective customers to users</p>
+    </div>
+    <button class="buttonstyle" style="transform:translate(-110px,-10px);">Order</button>
+  </div>
+</div>
+</div>
+<div class="grid-float-container" >
+  <div class="floating-button" type="button">
+        <i   class="fa fa-comments-o " style="top: 50%;left: 50%;transform: translate(0%, 50%);"></i>
+    </div>
+   <div class="floating-button" type="button">
+        <i class="fa fa-code " style="top: 50%;left: 50%;transform: translate(0%, 50%);"></i>
+    </div>
+   <div class="floating-button" type="button">
+        <i class="fa fa-qrcode " style="top: 50%;left: 50%;transform: translate(0%, 50%);"></i>
+    </div>
+</div>
+<div class="grid-float-container2" >
+  <div class="floating-button2" type="button">
+        <i class="fa fa-linkedin " style="transform: translate(50%, 50%);"></i><p style="font-size:14px;transform: translate(25%, -130%); ">Made in InVision</p>
+    </div>
+</div>
+<div class="footer">
+  <i class="fa fa-twitter" style="font-size:40px;padding-left:50px;color:grey;"></i>
+  <i class="fa fa-linkedin" style="font-size:40px;padding-left:50px;color:grey;"></i>
+  <i class="fa fa-instagram" style="font-size:40px;padding-left:50px;color:grey;"></i>
+  <i class="fa fa-facebook" style="font-size:40px;padding-left:50px;color:grey;"></i>
+  <p style="padding-left: 40px;color:grey">Copyright @2019 White Panda Media Pvt. Ltd. </p>
+  <p style="padding-left: 40px;color:grey">All rights reserved </p>
+  <p style="padding-left: 40px;color:grey"><u>Privacy Policy</u>  |  <u>Terms of service</u>  |  <u>Service Agreement</u>  |  <u>Contact us</u></p>
+</div>
+</body>
+</html>
